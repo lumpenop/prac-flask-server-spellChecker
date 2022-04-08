@@ -18,12 +18,15 @@ def result():
     if request.method == 'POST':
 
         params = request.json
+
         if len(params) == 0:
-            return 'no prams'
-        
+            return 'no params'
+
         spelled_sent = spell_checker.check(params['data'])
         checked_sent = spelled_sent.checked
-        prams['data'] = checked_sent
+        params['data'] = checked_sent
+  
+
         return jsonify(params)
 
 
